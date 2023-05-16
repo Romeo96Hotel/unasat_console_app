@@ -48,7 +48,7 @@ public class ContestantDAO implements ContestantDAOInterface {
     @Override
     public void deleteContestant(String name) {
         con = DatabaseConnector.createDBConnection();
-        String query = "delete from contestants where id = ?";
+        String query = "delete from contestants where first_name = ?";
         try {
             PreparedStatement prep = con.prepareStatement(query);
             prep.setString(1, name);

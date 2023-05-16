@@ -89,11 +89,13 @@ public class UserInterface {
                     break;
                 case "3":
                     System.out.println("Getting all contestants");
-                    System.out.println("-------------------------");
+                    System.out.println("----------------------------");
                     dao.getAllContestants();
                     System.out.println("----------------------------");
+                    break;
                 default:
                     System.out.println("Invalid entry");
+                    break;
 
             }
         }
