@@ -3,7 +3,6 @@ package org.example;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class TeamDAO implements TeamDAOInterface {
     Connection con;
@@ -39,8 +38,8 @@ public class TeamDAO implements TeamDAOInterface {
 
             while (results.next()) {
                 System.out.println(
-                        results.getInt(1) + "\n" +
-                                results.getString(2));
+                        "Team index: " + results.getInt(1) + "\n" +
+                                "Team name: " + results.getString(2));
             }
 
         } catch (Exception e) {

@@ -11,18 +11,7 @@ public class ContestantDAO implements ContestantDAOInterface {
 
         String query = "insert into contestants values(?,?,?,?,?,?,?,?,?,?)";
         try {
-            /*
-             * 1) string - firstname
-             * 2) string - last name
-             * 3) string - student id
-             * 4) int - age
-             * 5) date - birthdate
-             * 6) string - contact number
-             * 7) string - team name
-             * 8) address - email address
-             * 9) string - home address
-             * 10) String - ict skill-set
-             * */
+
             PreparedStatement prep = con.prepareStatement(query);
             prep.setString(1, contestant.getId());
             prep.setString(2, contestant.getFirstName());
@@ -54,17 +43,19 @@ public class ContestantDAO implements ContestantDAOInterface {
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {
                 System.out.println(
-                        results.getString(1) + "\n" +
-                                results.getString(2) + "\n" +
-                                results.getString(3) + "\n" +
-                                results.getInt(4) + "\n" +
-                                results.getString(5) + "\n" +
-                                results.getString(6) + "\n" +
-                                results.getString(7) + "\n" +
-                                results.getString(8) + "\n" +
-                                results.getString(9) + "\n" +
-                                results.getString(10)
+                        "Contestant id: " + results.getString(1) + "\n" +
+                                "Contestant first name: " + results.getString(2) + "\n" +
+                                "Contestant last name: " + results.getString(3) + "\n" +
+                                "Contestant age: " + results.getInt(4) + "\n" +
+                                "Contestant DOB: " + results.getString(5) + "\n" +
+                                "Contestant Contact number: " + results.getString(6) + "\n" +
+                                "Contestant team name: " + results.getString(7) + "\n" +
+                                "Contestant email address: " + results.getString(8) + "\n" +
+                                "Contestant home address: " + results.getString(9) + "\n" +
+                                "Contestant ict skill-set: " + results.getString(10)
                 );
+
+                System.out.println("--------------------------------------------------------------------");
             }
         } catch (Exception e) {
             e.printStackTrace();
