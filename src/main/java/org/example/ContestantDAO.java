@@ -24,9 +24,9 @@ public class ContestantDAO implements ContestantDAOInterface {
              * 10) String - ict skill-set
              * */
             PreparedStatement prep = con.prepareStatement(query);
-            prep.setString(1, contestant.getFirstName());
-            prep.setString(2, contestant.getLastName());
-            prep.setString(3, contestant.getId());
+            prep.setString(1, contestant.getId());
+            prep.setString(2, contestant.getFirstName());
+            prep.setString(3, contestant.getLastName());
             prep.setInt(4, contestant.getAge());
             prep.setString(5, contestant.getBirthday());
             prep.setString(6, contestant.getCtcNumber());
@@ -74,10 +74,11 @@ public class ContestantDAO implements ContestantDAOInterface {
     @Override
     public void getContestant(String name) {
         con = DatabaseConnector.createDBConnection();
-        String query = "select * from contestants";
+        String query = "select * from contestants where student_id = ?";
         try {
-            Statement statement = con.createStatement();
-            ResultSet results = statement.executeQuery(query);
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, name);
+            ResultSet results = statement.executeQuery();
             while (results.next()) {
                 System.out.println(
                         results.getString(1) + "\n" +
