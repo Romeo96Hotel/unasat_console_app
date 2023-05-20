@@ -126,7 +126,7 @@ public class UserInterface {
                     teamDao.createTeam(teamName);
                     conDao.createContestant(contestant1);
                     conDao.createContestant(contestant2);
-                    System.out.println("------------------------------");
+                    System.out.println("-------------------------------");
                     break;
 
                 case "2":
@@ -139,6 +139,7 @@ public class UserInterface {
                     System.out.println("Insert name of team to view?");
                     String searchedTeam = scan.nextLine();
                     teamDao.selectTeam(searchedTeam);
+                    conDao.getContestant(searchedTeam);
                     System.out.println("-------------------------------");
                 default:
                     System.out.println("Invalid entry");
