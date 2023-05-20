@@ -134,6 +134,7 @@ public class UserInterface {
                     String deleteTeam = scan.nextLine();
                     teamDao.deleteTeam(deleteTeam);
                     System.out.println("-------------------------------");
+                    break;
 
                 case "3":
                     System.out.println("Insert name of team to view?");
@@ -141,6 +142,8 @@ public class UserInterface {
                     teamDao.selectTeam(searchedTeam);
                     conDao.getContestant(searchedTeam);
                     System.out.println("-------------------------------");
+                    break;
+
                 default:
                     System.out.println("Invalid entry");
                     break;
